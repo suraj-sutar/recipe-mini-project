@@ -1,0 +1,35 @@
+<p>search works!</p>
+<div class="container">
+  <h1 class="display-3">Recipe Search</h1>
+
+  <div class="row mb-3">
+    <div class="col">
+      <input
+        class="form-control"
+        [(ngModel)]="searchText"
+        placeholder="Enter Food name recipe"
+      />
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-success" (click)="searchRecipes()">Search</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3" *ngFor="let recipe of recipes">
+      <a class="text-decoration-none" [routerLink]="['/recipe', recipe.id]">
+        <div class="card mb-3 p-2">
+          <img
+            class="p-1"
+            [src]="recipe.image"
+            class="card-img-top"
+            [alt]="recipe.title"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <p class="card-text"></p>
+          </div></div
+      ></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<p>recipe-details works!</p>
+<div class="container m-5">
+  <div class="row align-items-center">
+    <div class="col">
+      <h2 class="display-4">Recipe Details</h2>
+    </div>
+    <div class="col-auto">
+      <a routerLink="/search" class="btn btn-outline-success">Back</a>
+    </div>
+  </div>
+
+  <div *ngIf="recipe">
+    <h3 class="lead fw-bold">{{ recipe.title }}</h3>
+    <img [src]="recipe.image" [alt]="recipe.title" class="img-fluid" />
+    <p class="display-6">Ingredients</p>
+    <ul>
+      <li *ngFor="let ingredient of recipe.extendedIngredients">
+        {{ ingredient.original }}
+      </li>
+    </ul>
+
+    <p class="display-6">Instructions:</p>
+    <ul *ngFor="let step of instructions">
+      <!-- Iterate over the instructions and display each one as a list item -->
+      <li [innerHTML]="step">{{ step }}</li>
+    </ul>
+  </div>
+</div>
